@@ -48,7 +48,7 @@ namespace Lyten.VoiceChat
                         string[] parts = text.Split('=');
                         if (parts.Length == 2)
                         {
-                            string commandName = parts[0].Substring(1).ToLower();  // Удалите слеш
+                            string commandName = parts[0].Substring(1).ToLower();
 
                             string jsonArgs = parts[1];
 
