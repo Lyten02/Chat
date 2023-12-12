@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "vkcU4bkFJmohkd//CEqeabWL5ge1GypUeI0OhOmG6ZjHunMUnkYw2GUwafpRj8sJuhB6+ejmac/kfLonpQgEvQ==",
+  "dgSpecHash": "EU+Lo3cPdprK3WhFdIDhg5mRvm4NejXabMliYYshrCWPWutbqgASXiLPdUfrP3zpZ4/NeapYbJfaxTITkj0TeA==",
   "success": true,
-  "projectFilePath": "E:\\LYTEN\\Programing\\C#\\C# Projects and Others\\VoiceChat\\VoiceChatClient\\VoiceChat.csproj",
+  "projectFilePath": "E:\\LYTEN\\Programing\\C#\\GitProject\\[GIT]Chat\\[C#]Chat\\VoiceChat\\VoiceChatClient\\VoiceChat.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\LYTEN\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
     "C:\\Users\\LYTEN\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",

@@ -569,11 +569,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\LYTEN\\Programing\\C#\\C# Projects and Others\\VoiceChat\\VoiceChatClient\\VoiceChat.csproj",
+      "projectUniqueName": "E:\\LYTEN\\Programing\\C#\\GitProject\\[GIT]Chat\\[C#]Chat\\VoiceChat\\VoiceChatClient\\VoiceChat.csproj",
       "projectName": "VoiceChat",
-      "projectPath": "E:\\LYTEN\\Programing\\C#\\C# Projects and Others\\VoiceChat\\VoiceChatClient\\VoiceChat.csproj",
+      "projectPath": "E:\\LYTEN\\Programing\\C#\\GitProject\\[GIT]Chat\\[C#]Chat\\VoiceChat\\VoiceChatClient\\VoiceChat.csproj",
       "packagesPath": "C:\\Users\\LYTEN\\.nuget\\packages\\",
-      "outputPath": "E:\\LYTEN\\Programing\\C#\\C# Projects and Others\\VoiceChat\\VoiceChatClient\\obj\\",
+      "outputPath": "E:\\LYTEN\\Programing\\C#\\GitProject\\[GIT]Chat\\[C#]Chat\\VoiceChat\\VoiceChatClient\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\LYTEN\\AppData\\Roaming\\NuGet\\NuGet.Config",

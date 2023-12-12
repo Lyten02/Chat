@@ -8,6 +8,6 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = VoiceChat
-build_property.ProjectDir = E:\LYTEN\Programing\C#\C# Projects and Others\VoiceChat\VoiceChatClient\
+build_property.ProjectDir = E:\LYTEN\Programing\C#\GitProject\[GIT]Chat\[C#]Chat\VoiceChat\VoiceChatClient\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 

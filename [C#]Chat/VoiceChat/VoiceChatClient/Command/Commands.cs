@@ -1,5 +1,4 @@
 ﻿using Lyten.VoiceChat;
-using VoiceChat.Network;
 
 namespace VoiceChat.Command
 {
@@ -31,27 +30,41 @@ namespace VoiceChat.Command
 //              "/send={"text":"текст"}"
                 { "send",
                     (CommandArgs) => {
-                        Program.client?.Send($"{CommandArgs.Text}");
+                        Program.client?.SendText($"{CommandArgs.Text}");
                     }
                 },
 //              "/stop={}"
                 { "stop",
                     (CommandArgs) => {
                         Program.Record.OutStopAudio();
-                        Program.client?.Send($"Stop audio stream.");
+                        Program.client?.SendText($"StopRecording audio stream.");
+                    }
+                },
+//              "/stoprec={}"
+                { "stoprec",
+                    (CommandArgs) => {
+                        Program.Record.StopRecording();
+                        Program.client?.SendText($"StopRecording audio recording.");
+                    }
+                },
+//              "/playrec={}"
+                { "playrec",
+                    (CommandArgs) => {
+                        Program.Record.StartRecording();
+                        Program.client?.SendText($"StartRecording audio recording.");
                     }
                 },
 //              "/play={}"
                 { "play",
                     (CommandArgs) => {
                         Program.Record.OutPlayAudio(CommandArgs.Volume);
-                        Program.client?.Send($"Play audio stream. {CommandArgs.Volume}");
+                        Program.client?.SendText($"Play audio stream. {CommandArgs.Volume}");
                     }
                 },
 //              "/sendaudio={}"
                 { "sendaudio",
                     async (CommandArgs) => {
-                        await Program.client.SendBytes(new byte[1024]);
+                        await Program.client.SendAudio(new byte[1024]);
                     }
                 },
             };

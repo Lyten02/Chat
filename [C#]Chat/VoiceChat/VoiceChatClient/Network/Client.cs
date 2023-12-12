@@ -8,25 +8,26 @@ namespace VoiceChat.Network
     {
         public Socket? SocketClient;
         public bool IsConnected = false;
-        private byte[] bytes = new byte[1024];
+        private byte[] _bytes = new byte[1024];
+        private bool _isFindJoin = true;
 
-        public async Task Send(string text)
+        public async Task SendText(string text)
         {
             try
             {
                 if (SocketClient == null)
                     return;
                 byte[] bytes = Encoding.UTF8.GetBytes($"/text={text}");
-                Console.WriteLine($"[Send] {text}");
+                Console.WriteLine($"[SendText] {text}");
                 await SocketClient.SendAsync(bytes);
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"[Send Text] Error: {ex}");
+                Console.WriteLine($"[SendText Text] Error: {ex}");
             }
         }
 
-        public async Task SendBytes(byte[] bytes)
+        public async Task SendAudio(byte[] bytes)
         {
             try
             {
@@ -38,7 +39,7 @@ namespace VoiceChat.Network
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"[SendBytes] Error: {ex}");
+                Console.WriteLine($"[SendAudio] Error: {ex}");
             }
         }
 
@@ -57,7 +58,6 @@ namespace VoiceChat.Network
                 IsConnected = true;
 
                 Console.WriteLine($"Join: {Settings.IP}:{Settings.Port}");
-                
             }
             catch (SocketException)
             {
@@ -68,7 +68,7 @@ namespace VoiceChat.Network
 
         public async Task ReceiveFromClients()
         {
-            while (true)
+            while (_isFindJoin)
             {
                 try
                 {
@@ -88,21 +88,30 @@ namespace VoiceChat.Network
             {
                 if (!IsConnected)
                 {
-                    Console.WriteLine($"No connect!");
+                    //Console.WriteLine($"No connect!");
                     return;
                 }    
 
                 if (IsConnected 
                     && SocketClient.Poll(0, SelectMode.SelectRead))
                 {
-                    int bytesRead = await SocketClient.ReceiveAsync(bytes);
+                    int bytesRead = await SocketClient.ReceiveAsync(_bytes);
                     Socket socket = SocketClient;
-                    Console.WriteLine($"Receive [{socket.RemoteEndPoint}]: {Encoding.UTF8.GetString(bytes, 0, bytesRead)}.");
+                    Console.WriteLine($"Receive [{socket.RemoteEndPoint}]: {Encoding.UTF8.GetString(_bytes, 0, bytesRead)}.");
                 }
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"[Server Receive] Error: {ex}.");
+                switch (ex)
+                {
+                    case SocketException:
+                        Console.WriteLine($"[Server Receive] Error: Close host connection.");
+                        Disconnect();
+                        break;
+                    default:
+                        Console.WriteLine($"[Server Receive] Error: {ex}.");
+                        break;
+                }
             }
         }
 

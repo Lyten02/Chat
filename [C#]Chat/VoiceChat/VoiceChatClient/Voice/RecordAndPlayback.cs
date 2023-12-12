@@ -96,10 +96,16 @@ namespace VoiceChat.Voice
             waveOut?.Stop();
         }
 
-        public void Stop()
+        public void StopRecording()
         {
             waveIn?.StopRecording();
             waveOut?.Stop();
+        }
+
+        public void StartRecording()
+        {
+            waveIn?.StartRecording();
+            waveOut?.Play();
         }
     }
 }
